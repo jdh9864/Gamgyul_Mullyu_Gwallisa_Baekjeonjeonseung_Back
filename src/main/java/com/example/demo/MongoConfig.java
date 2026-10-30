@@ -16,3 +16,4 @@ public class MongoConfig {
         return new MongoTemplate(new SimpleMongoClientDatabaseFactory(MongoClients.create(uri), "Gamguyl"));
     }
 }
+

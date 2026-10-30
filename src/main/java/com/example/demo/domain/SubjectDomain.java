@@ -3,12 +3,15 @@ package com.example.demo.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Document(collection = "subjectDomain")
+@Document(collection = "SubjectDomains") // 컬렉션 이름 깔끔하게 첫글자 대문자 복수형 통일
+@Getter @Setter
 public class SubjectDomain {
 
     @Id
@@ -32,22 +35,4 @@ public class SubjectDomain {
 
     @Field("created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
-
-    public SubjectDomain() {}
-
-    // Getters and Setters
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-    public String getSubjectType() { return subjectType; }
-    public void setSubjectType(String subjectType) { this.subjectType = subjectType; }
-    public String getMajorCategory() { return majorCategory; }
-    public void setMajorCategory(String majorCategory) { this.majorCategory = majorCategory; }
-    public String getSubCategory() { return subCategory; }
-    public void setSubCategory(String subCategory) { this.subCategory = subCategory; }
-    public List<String> getCoreKeywords() { return coreKeywords; }
-    public void setCoreKeywords(List<String> coreKeywords) { this.coreKeywords = coreKeywords; }
-    public String getReferenceText() { return referenceText; }
-    public void setReferenceText(String referenceText) { this.referenceText = referenceText; }
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }

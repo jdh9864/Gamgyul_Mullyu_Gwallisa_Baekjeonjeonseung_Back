@@ -27,10 +27,22 @@ dependencies {
 	// 3. MongoDB
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 
-	// 4. Test 설정
+	// ★ 4. Lombok 추가 (에러 해결)
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// 5. Test 설정
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-data-mongodb-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// 순수 BCrypt 암호화
+	implementation 'org.mindrot:jbcrypt:0.4'
+
+	// JWT 발급
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
 }
 
 tasks.named('test') {
