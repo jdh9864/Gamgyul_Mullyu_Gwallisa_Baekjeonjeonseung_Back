@@ -2,7 +2,6 @@ package com.example.demo.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,29 +9,18 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Document(collection = "SubjectDomains") // 컬렉션 이름 깔끔하게 첫글자 대문자 복수형 통일
+@Document(collection = "subjectDomain") // DB 이름과 정확히 일치시킴
 @Getter @Setter
 public class SubjectDomain {
 
     @Id
     private String id;
 
-    @Field("subject_type")
+    // @Field 싹 다 제거 -> 자바 변수명(카멜케이스) 그대로 DB에 들어감
     private String subjectType;
-
-    @Field("major_category")
     private String majorCategory;
-
-    @Field("sub_category")
     private String subCategory;
-
-    // JSONB: 빈 배열을 기본값으로 할당하여 제약 조건 완화 반영
-    @Field("core_keywords")
     private List<String> coreKeywords = new ArrayList<>();
-
-    @Field("reference_text")
     private String referenceText;
-
-    @Field("created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 }

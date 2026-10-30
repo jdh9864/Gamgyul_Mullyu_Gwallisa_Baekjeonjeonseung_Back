@@ -26,7 +26,7 @@ public class AuthService {
         user.setEmail(req.getEmail());
         user.setPassword(BCrypt.hashpw(req.getPassword(), BCrypt.gensalt()));
         user.setName(req.getName());
-        user.setTotalAttendanceDays(0);
+        user.setConsecutiveAttendanceDays(0);
 
         userRepository.save(user);
         return "회원가입 완료";

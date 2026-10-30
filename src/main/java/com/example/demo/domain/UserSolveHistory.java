@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDateTime;
 
-@Document(collection = "UserSolveHistories")
+@Document(collection = "UserSolveHistories") // DB 이름과 정확히 일치시킴[cite: 1]
 @CompoundIndex(name = "user_problem_idx", def = "{'userId': 1, 'problemId': 1, 'solvedAt': -1}")
 @Getter @Setter
 public class UserSolveHistory {
@@ -18,12 +18,10 @@ public class UserSolveHistory {
     private String userId;
     private String problemId;
 
-    // [다중 필터 검색을 위한 비정규화 필드 (필수)]
-    private String subjectType;   // 예: "물류관리론"
-    private String subCategory;   // 예: "물류총론"
+    private String subjectType;
+    private String subCategory;
 
     private boolean isCorrect;
-
     private String userDifficulty;
     private String reviewNotes;
 

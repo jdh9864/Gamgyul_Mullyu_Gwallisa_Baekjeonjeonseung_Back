@@ -6,9 +6,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Getter;
 import lombok.Setter;
 
-@Document(collection = "Users")
+@Document(collection = "users") // DB 이름과 정확히 일치시킴[cite: 1]
 @Getter @Setter
 public class User {
+
     @Id
     private String id;
 
@@ -17,7 +18,6 @@ public class User {
     private String password;
     private String name;
 
-    // [출석 체크 필드]
-    private String lastAttendanceDate; // 예: "2026-10-30"
-    private int consecutiveAttendanceDays; // 연속 출석 횟수
+    private String lastAttendanceDate;
+    private int consecutiveAttendanceDays;
 }
