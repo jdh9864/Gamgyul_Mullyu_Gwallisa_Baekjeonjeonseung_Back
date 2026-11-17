@@ -4,14 +4,8 @@ import com.example.demo.domain.Problem;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface ProblemRepository extends MongoRepository<Problem, String> {
-
-    // [Server A] 문제 서빙용: 해당 단원들에 속한 문제를 전부 가져옴
-    List<Problem> findByDomainIdIn(List<String> domainIds);
-
-    // [Server A] 워터마크 방어용: 풀스캔 없이 인덱스를 타서 문제 갯수만 초고속 카운트
-    long countByDomainIdIn(List<String> domainIds);
+    // solvedUsers 필드가 아키텍처 V3.0에서 분리 및 삭제되었으므로
+    // 여기서 사용하던 옛날 쿼리 메서드들은 제거합니다.
 }
