@@ -25,12 +25,11 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthDto.TokenResponse> login(@RequestBody AuthDto.LoginRequest req) {
+    public ResponseEntity<?> login(@RequestBody AuthDto.LoginRequest req) {
         try {
-            String token = authService.login(req);
-            return ResponseEntity.ok(new AuthDto.TokenResponse(token));
+            return ResponseEntity.ok(authService.login(req));
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 }

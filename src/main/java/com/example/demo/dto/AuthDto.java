@@ -1,6 +1,8 @@
 package com.example.demo.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 public class AuthDto {
 
@@ -18,11 +20,12 @@ public class AuthDto {
     }
 
     @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class TokenResponse {
         private String token;
-
-        public TokenResponse(String token) {
-            this.token = token;
-        }
+        private String userId;
+        private String email;
+        private String name;
     }
 }
